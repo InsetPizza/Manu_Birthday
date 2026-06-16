@@ -3,7 +3,6 @@
 ══════════════════════════════════════════════════ */
 
 function showScreen(id) {
-    // hide all top-level screens
     ["envelope-container","letter-container","menu-container",
      "camera-container","bouquet-container","letter2-container","ribbon-container"]
     .forEach(s => {
@@ -58,13 +57,11 @@ noBtn.addEventListener("click", () => {
 });
 
 yesBtn.addEventListener("click", () => {
-    // reset the yes button in case it was moved
     yesBtn.style.position = "relative";
     yesBtn.style.top = "";
     yesBtn.style.left = "";
     yesBtn.style.transform = "";
 
-    // short "yay" flash then go to menu
     const title = document.getElementById("letter-title");
     const catImg = document.getElementById("letter-cat");
     const buttons = document.getElementById("letter-buttons");
@@ -128,17 +125,6 @@ function closeLightbox() {
 /* ══════════════════════════════════════════════════
    Bouquet — animated flowers + reasons
 ══════════════════════════════════════════════════ */
-//const FLOWERS = ["🌸","🌺","🌹","💐","🌷","🌼","🌻","🪷","🌸","🌺","🌹","🌷"];
-
-// ✏️  Edit this list to personalise!
-// const REASONS = [
-//     "your laugh",
-//     "how kind you are",
-//     "your silly jokes",
-//     "the way you care",
-//     "your big dreams",
-//     "every little thing 💕",
-// ];
 
 let bouquetDone = false;
 
@@ -147,7 +133,6 @@ function initBouquet() {
     bouquetDone = true;
 
     const garden = document.getElementById("flower-garden");
-    //const reasonsEl = document.getElementById("bouquet-reasons");
 
     FLOWERS.forEach((f, i) => {
         const div = document.createElement("div");
@@ -157,7 +142,6 @@ function initBouquet() {
         garden.appendChild(div);
     });
 
-    // type out the reasons one by one
     let html = "";
     REASONS.forEach((r, i) => {
         setTimeout(() => {
