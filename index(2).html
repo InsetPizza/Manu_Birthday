@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style(2).css"/>
+    <title>Birthday Gift</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Aldrich&family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+    <!-- ══ SCREEN 1 — Envelope ══ -->
+    <div id="envelope-container">
+        <img src="envelope-removebg-preview.png" alt="Envelope" id="envelope" />
+        <p class="letterforyou">&#x2661; Letter for You &#x2661;</p>
+    </div>
+
+    <!-- ══ SCREEN 2 — Yes/No letter ══ -->
+    <div id="letter-container">
+        <div class="letter-window">
+            <h1 id="letter-title">Will you accept this gift?</h1>
+            <img src="cat_heart.gif" class="cat" id="letter-cat">
+            <div class="buttons" id="letter-buttons">
+                <img src="yes.png" class="btn yes-btn" alt="Yes"/>
+                <div class="no-wrapper">
+                    <img src="no.png" class="btn no-btn" alt="No"/>
+                </div>
+            </div>
+            <p id="final-text" class="final-text" style="display:none"></p>
+        </div>
+    </div>
+
+    <!-- ══ SCREEN 3 — Gift Menu ══ -->
+    <div id="menu-container">
+        <div class="menu-window">
+            <h1 class="menu-title">&#x2661; Your Birthday Gifts &#x2661;</h1>
+            <p class="menu-subtitle">Choose what to open first~</p>
+            <div class="menu-grid">
+                <div class="menu-item" data-target="camera">
+                    <div class="menu-icon"></div>
+                    <img src="camera.png" width="200px" height="150px">
+                    <!-- <div class="menu-label">Camera</div> -->
+                    <!-- <div class="menu-sublabel">memories</div> -->
+                </div>
+                <div class="menu-item" data-target="bouquet">
+                    <div class="menu-icon"></div>
+                    <img src="bouquet_icon.png" width="200px" height="150px">
+                    <!-- <div class="menu-label">Bouquet</div> -->
+                    <!-- <div class="menu-sublabel">for you</div> -->
+                </div>
+                <div class="menu-item" data-target="letter">
+                    <div class="menu-icon"></div>
+                    <img src="envelope-removebg-preview.png" width="200px" height="150px">
+                    <!-- <div class="menu-label">Letter</div> -->
+                    <!-- <div class="menu-sublabel">from the heart</div> -->
+                </div>
+                <div class="menu-item" data-target="ribbon">
+                    <div class="menu-icon"></div>
+                    <img src="ribbon.png" width="200px" height="150px">
+                    <!-- <div class="menu-label">Ribbon</div> -->
+                    <!-- <div class="menu-sublabel">future plans</div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ══ SCREEN 4A — Camera / Photos ══ -->
+    <div id="camera-container" class="gift-screen">
+        <div class="gift-window">
+            <button class="back-btn" data-back="menu">← back</button>
+            <h1 class="gift-title">Our Memories</h1>
+            <!-- <p class="gift-subtitle">every photo tells a story ✨</p> -->
+
+            <div class="polaroid-stack">
+                <!-- Placeholders — replace src with your actual photos -->
+                <div class="polaroid" style="--r:-4deg">
+                    <div class="polaroid-img-wrap">
+                        <img src="img1.jpg" alt="memory 1" onerror="this.parentNode.classList.add('no-img')"/>
+                    </div>
+                    <p class="polaroid-caption">28.02.2026</p>
+                </div>
+                <div class="polaroid" style="--r:3deg">
+                    <div class="polaroid-img-wrap">
+                        <img src="img2.jpg" alt="memory 2" onerror="this.parentNode.classList.add('no-img')"/>
+                    </div>
+                    <p class="polaroid-caption">20.10.2025</p>
+                </div>
+                <div class="polaroid" style="--r:-2deg">
+                    <div class="polaroid-img-wrap">
+                        <img src="img3.jpg" alt="memory 3" onerror="this.parentNode.classList.add('no-img')"/>
+                    </div>
+                    <p class="polaroid-caption">03.10.2025</p>
+                </div>
+            </div>
+            <p class="gift-note">( click a photo to see it bigger )</p>
+        </div>
+    </div>
+
+    <!-- ══ SCREEN 4B — Bouquet ══ -->
+    <div id="bouquet-container" class="gift-screen">
+        <div class="gift-window">
+            <button class="back-btn" data-back="menu">← back</button>
+            <h1 class="gift-title">A Bouquet for You</h1>
+            <div class="flower-garden" id="flower-garden">
+                <img src="bouquet.png" width = 400 />
+                <!-- flowers injected by JS -->
+            </div>
+            <div class="bouquet-msg">
+                <p>If love had a fragrance, it would smell exactly like you.</p>
+                <p class="bouquet-reasons" id="bouquet-reasons"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ══ SCREEN 4C — Letter ══ -->
+    <div id="letter2-container" class="gift-screen">
+        <div class="gift-window gift-window--letter">
+            <button class="back-btn" data-back="menu">← back</button>
+            <h1 class="gift-title"> A Letter for Manu</h1>
+            <div class="love-letter">
+                <img src="letter.png" width="500px">
+                <!-- <p class="letter-greeting">My dearest Manu,</p>
+                <p class="letter-body">
+                    Happy Birthday! 🎂 I could write a thousand lines and still not say enough.
+                    You make every day brighter just by being in it. ✨
+                </p>
+                <p class="letter-body">
+                    This year, I hope you get everything you deserve — and you deserve the world.
+                    Thank you for being you. 💕
+                </p>
+                <p class="letter-sign">Yours always,<br/><em>[ your name here ]</em> &#x2661;</p> -->
+            </div>
+            <!-- <div class="letter-seal">
+                <span>💌</span>
+            </div> -->
+        </div>
+    </div>
+
+    <!-- ══ SCREEN 4D — Ribbon / Future Plans ══ -->
+    <div id="ribbon-container" class="gift-screen">
+        <div class="gift-window">
+            <button class="back-btn" data-back="menu">← back</button>
+            <h1 class="gift-title"> Our Future Plans</h1>
+            <p class="gift-subtitle">things we're going to do together</p>
+            <div class="plans-list">
+                <div class="plan-item unlocked">
+                    <!-- <span class="plan-icon">🍜</span> -->
+                    <span class="plan-text">Try new restaurants</span>
+                    <span class="plan-tag">soon</span>
+                </div>
+                <div class="plan-item unlocked">
+                    <!-- <span class="plan-icon">🌙</span> -->
+                    <span class="plan-text">Have an Aquarium Date</span>
+                    <span class="plan-tag">when?</span>
+                </div>
+                <div class="plan-item">
+                    <!-- <span class="plan-icon">🎂</span> -->
+                    <span class="plan-text">Celebrate every birthday together</span>
+                    <span class="plan-tag plan-tag--forever">forever</span>
+                </div>
+                <div class="plan-item">
+                    <!-- <span class="plan-icon">✈️</span> -->
+                    <span class="plan-text">A little trip together</span>
+                    <span class="plan-tag plan-tag--dream">dream</span>
+                </div>
+                <div class="plan-item">
+                    <!-- <span class="plan-icon"></span> -->
+                    <span class="plan-text">Marry</span>
+                    <span class="plan-tag plan-tag--dream">Us When?</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lightbox for photos -->
+    <div id="lightbox" class="lightbox">
+        <div class="lightbox-bg"></div>
+        <img id="lightbox-img" src="" alt=""/>
+        <button class="lightbox-close">✕</button>
+    </div>
+
+    <script src="script(2).js"></script>
+</body>
+</html>
