@@ -94,6 +94,13 @@ document.querySelectorAll(".menu-item").forEach(item => {
 });
 
 /* ══════════════════════════════════════════════════
+   Screen 3 — "End" button → final full-page photo
+══════════════════════════════════════════════════ */
+document.getElementById("end-btn").addEventListener("click", () => {
+    showScreen("final-container");
+});
+
+/* ══════════════════════════════════════════════════
    Back buttons
 ══════════════════════════════════════════════════ */
 document.querySelectorAll(".back-btn").forEach(btn => {
